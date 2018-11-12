@@ -18,6 +18,26 @@ variable "allowed_ipv6_cidr" {
   description = "A list of IPv6 CIDR Networks to allow ssh access to."
 }
 
+variable "allowed_cidr_egress" {
+  type = "list"
+
+  default = [
+    "0.0.0.0/0",
+  ]
+
+  description = "A list of CIDR Networks to allow egress access to."
+}
+
+variable "allowed_ipv6_cidr_egress" {
+  type = "list"
+
+  default = [
+    "::/0",
+  ]
+
+  description = "A list of IPv6 CIDR Networks to allow egress access to."
+}
+
 variable "allowed_security_groups" {
   type        = "list"
   default     = []

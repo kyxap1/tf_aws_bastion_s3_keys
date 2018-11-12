@@ -34,13 +34,9 @@ resource "aws_security_group_rule" "bastion_all_egress" {
   to_port   = "65535"
   protocol  = "all"
 
-  cidr_blocks = [
-    "0.0.0.0/0",
-  ]
+  cidr_blocks = "${var.allowed_cidr_egress}"
 
-  ipv6_cidr_blocks = [
-    "::/0",
-  ]
+  ipv6_cidr_blocks = "${var.allowed_ipv6_cidr_egress}"
 
   security_group_id = "${aws_security_group.bastion.id}"
 }
